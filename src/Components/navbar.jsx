@@ -9,12 +9,7 @@ const Navbar = () => {
   return (
     <div className=" px-10 flex justify-between items-center absolute top-0 w-full z-50">
       <div>
-        <img
-          src="../../public/assets/logo.png"
-          width={150}
-          height={150}
-          alt=""
-        />
+        <img src="/assets/logo.png" width={150} height={150} alt="" />
       </div>
       <div>
         <FiAlignJustify
@@ -42,12 +37,7 @@ const Navbar = () => {
         }`}
       >
         <div>
-          <img
-            src="../../public/assets/logo.png"
-            width={110}
-            height={110}
-            alt=""
-          />
+          <img src="/assets/logo.png" width={110} height={110} alt="" />
         </div>
         <ul className="flex flex-col text-black pr-3">
           {NavItem.map((item) => (
