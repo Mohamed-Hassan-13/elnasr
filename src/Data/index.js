@@ -31,21 +31,21 @@ export const equipment = [
   {
     id: 1,
     name: "فوركليفت",
-    img: "../../public/assets/Forklift.jpg",
+    img: "/assets/Forklift.jpg",
   },
   {
     id: 2,
     name: "مان ليفت",
-    img: "../../public/assets/manLift.jpg",
+    img: "/assets/manLift.jpg",
   },
   {
     id: 3,
     name: "سيزر ليفت",
-    img: "../../public/assets/CaesarLift.jpg",
+    img: "/assets/CaesarLift.jpg",
   },
   {
     id: 1,
     name: "الاوناش",
-    img: "../../public/assets/winch.jpg",
+    img: "/assets/winch.jpg",
   },
 ];
