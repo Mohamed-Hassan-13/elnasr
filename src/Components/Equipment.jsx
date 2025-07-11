@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { equipment } from "../Data";
 
 const Equipment = () => {
@@ -9,7 +10,8 @@ const Equipment = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-6 mt-5 ">
         {equipment.map((item) => (
-          <div
+          <Link
+            to={`/${item.to}`}
             key={item.id}
             className="border-1 relative border-[#F26B00] p-2 rounded group overflow-hidden"
           >
@@ -19,7 +21,7 @@ const Equipment = () => {
                 {item.name}
               </h3>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

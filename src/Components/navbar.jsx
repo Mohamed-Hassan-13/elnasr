@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavItem } from "../Data";
 import { FiAlignJustify } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const path = location.pathname;
+
+  console.log(path);
 
   return (
     <div className=" px-10 flex justify-between items-center absolute top-0 w-full z-50">
-      <div>
+      <Link to="/">
         <img src="/assets/logo.png" width={150} height={150} alt="" />
-      </div>
+      </Link>
       <div>
         <FiAlignJustify
           size={50}
@@ -21,12 +25,17 @@ const Navbar = () => {
       <div className="ml-15 max-md:hidden">
         <ul className="flex gap-8 text-white ">
           {NavItem.map((item) => (
-            <li className="font-bold text-xl " key={item.id}>
+            <li className="font-bold text-xl relative group" key={item.id}>
               {item.link ? (
                 <a href={item.link}>{item.name}</a>
               ) : (
-                <Link to={"/"}>{item.name}</Link>
+                <Link to={`${item.to}`}>{item.name}</Link>
               )}
+              <span
+                className={`absolute w-0 group-hover:w-full transition-all h-[2px] -bottom-2 right-[50%] translate-x-1/2 bg-[#F26B00] ${
+                  path === item.to ? "w-full" : ""
+                }`}
+              ></span>
             </li>
           ))}
         </ul>

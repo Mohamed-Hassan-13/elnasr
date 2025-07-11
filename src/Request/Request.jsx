@@ -1,5 +1,6 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { Toaster, toast } from "react-hot-toast";
 
 const Request = () => {
   const [sending, setSending] = useState(false);
@@ -16,24 +17,26 @@ const Request = () => {
         "Qbm6Sa-_IeY3NH13W" // استبدلها بـ Public Key
       )
       .then(() => {
-        alert("✅ تم إرسال البيانات بنجاح!");
+        toast.success("تم ارسال الطلب بنجاح!");
         e.target.reset();
         setSending(false);
       })
       .catch((error) => {
         console.error("❌ خطأ أثناء الإرسال:", error);
-        alert("❌ حصلت مشكلة أثناء الإرسال!");
+        toast.error("حصلت مشكلة أثناء الإرسال!");
+
         setSending(false);
       });
   };
 
   return (
     <div>
+      <Toaster position="top-center" />
       <div className="bg-[#a29696b5] w-full py-40 text-white">
         <div className=" flex justify-center items-center">
           <h2 className="text-5xl font-bold text-[#F26B00]">طلب عرض سعر</h2>
         </div>
-        <div className="mx-20 mt-10 border-2 border-[#F26B00] p-10 ">
+        <div className="mx-5 md:mx-20 mt-10 border-2 border-[#F26B00] p-10 ">
           <div className="text-center mb-10">
             {" "}
             <h3 className="text-2xl font-bold mb-4">
@@ -136,7 +139,7 @@ const Request = () => {
             <button
               type="submit"
               disabled={sending}
-              className="w-full bg-orange-600 text-white py-3 rounded-md hover:bg-orange-700 transition disabled:opacity-50"
+              className="cursor-pointer w-full bg-orange-600 text-white py-3 rounded-md hover:bg-orange-700 transition disabled:opacity-50"
             >
               {sending ? "جارٍ الإرسال..." : "إرسال الطلب"}
             </button>

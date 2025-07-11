@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
 
 html {
@@ -9,3 +10,15 @@ body{
   font-family: "Cairo", sans-serif;
 }
 
+@keyframes pulse-zoom {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.animate-pulse-zoom {
+  animation: pulse-zoom 2s ease-in-out infinite;
+}
